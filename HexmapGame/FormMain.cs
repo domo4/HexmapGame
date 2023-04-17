@@ -19,8 +19,7 @@ namespace HexmapGame
         private void pictureBoxBoard_Paint(object sender, PaintEventArgs e)
         {
             Pen p = new Pen(Color.Black);
-            SolidBrush evenBrush = new SolidBrush(Color.Gainsboro);
-            SolidBrush oddBrush = new SolidBrush(Color.LightGray);
+            SolidBrush brush = new SolidBrush(Color.Gainsboro);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             int boardWidth = b.getWidth();
             int boardHeight = b.getHeight();
@@ -30,7 +29,7 @@ namespace HexmapGame
                 for (int j = 0; j < boardHeight; j++)
                 {
                     e.Graphics.DrawPolygon(p, b.hexArray[i, j].points);
-                    e.Graphics.FillPolygon(evenBrush, b.hexArray[i, j].points);
+                    e.Graphics.FillPolygon(brush, b.hexArray[i, j].points);
                 }
             }
         }
