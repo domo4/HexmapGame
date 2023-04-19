@@ -41,6 +41,7 @@
             pictureBoxBoard.TabIndex = 0;
             pictureBoxBoard.TabStop = false;
             pictureBoxBoard.Paint += pictureBoxBoard_Paint;
+            pictureBoxBoard.MouseClick += pictureBoxBoard_MouseClick;
             // 
             // FormMain
             // 
@@ -48,10 +49,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1024, 621);
             Controls.Add(pictureBoxBoard);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FormMain";
             Text = "HexmapGame";
-            Load += FormMain_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxBoard).EndInit();
             ResumeLayout(false);
         }

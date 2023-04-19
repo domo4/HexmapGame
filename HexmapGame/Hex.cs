@@ -11,8 +11,8 @@ namespace HexmapGame
         public PointF[] points;
         private float side;
         private float h, r, x, y; 
-        int difficulty; //determines cost to pass through this hex
-        Color color;
+        int difficulty = 1; //determines cost to pass through this hex
+        public Color color = Color.Gainsboro;
 
         public Hex(float side, float x, float y, float h, float r)
         {

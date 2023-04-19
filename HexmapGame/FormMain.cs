@@ -4,16 +4,11 @@ namespace HexmapGame
 {
     public partial class FormMain : Form
     {
-        Board? b;
+        Board b = new Board(13, 8, 40);
 
         public FormMain()
         {
             InitializeComponent();
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            b = new Board(13, 8, 40);
         }
 
         private void pictureBoxBoard_Paint(object sender, PaintEventArgs e)
@@ -29,8 +24,18 @@ namespace HexmapGame
                 for (int j = 0; j < boardHeight; j++)
                 {
                     e.Graphics.DrawPolygon(p, b.hexArray[i, j].points);
-                    e.Graphics.FillPolygon(brush, b.hexArray[i, j].points);
+                    e.Graphics.FillPolygon(new SolidBrush(b.hexArray[i, j].color), b.hexArray[i, j].points);
                 }
+            }
+        }
+
+        private void pictureBoxBoard_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (b != null && e.Button == MouseButtons.Left)
+            {
+                PointF mouseClick = new PointF(e.X, e.Y);
+                b.FindClickedHex(mouseClick);
+                pictureBoxBoard.Invalidate();
             }
         }
     }
