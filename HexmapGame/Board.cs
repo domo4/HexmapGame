@@ -88,7 +88,6 @@ namespace HexmapGame
                 {
                     if (IsPointInPolygon(hexArray[i, j].points, point)) 
                     {
-                        System.Diagnostics.Debug.WriteLine("x = " + i + " y = " + j);
                         clickedHex = hexArray[i, j]; 
                         Neighbors(i, j);
                     }
